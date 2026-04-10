@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" id="meta-desc" content="Línea de vinos Bodega Cicchitti — Mendoza.">
+  <title id="page-title">Línea — Bodega Cicchitti</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/nav-footer.css">
+  <link rel="stylesheet" href="../css/linea.css">
+</head>
+<body>
+
+  <!-- ══════ NAV ══════ -->
+  <nav class="nav" id="main-nav" data-current="vinos"></nav>
+
+  <!-- ══════ CONTENIDO DINÁMICO ══════
+       linea.js inyecta aquí:
+       · Hero de la línea
+       · Grid de vinos
+       · Sección "Otras líneas"
+  ══════════════════════════════════ -->
+  <main id="page-root">
+    <!-- Estado de carga -->
+    <div id="loading-state" style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--dark);">
+      <div style="font-family:var(--sans);font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:rgba(200,169,110,0.3);">
+        Cargando…
+      </div>
+    </div>
+  </main>
+
+  <!-- ══════ FOOTER ══════ -->
+  <footer class="footer" style="padding:52px 72px 32px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:28px;margin-bottom:24px;border-bottom:.5px solid rgba(244,236,216,.06);flex-wrap:wrap;gap:20px;">
+      <div>
+        <span class="footer__logo">Cicchitti</span>
+        <span class="footer__logo-sub">Bodega Familiar · Mendoza</span>
+      </div>
+      <div style="display:flex;gap:28px;flex-wrap:wrap;" id="footer-nav">
+        <a href="../index.html#vinos" style="font-family:var(--sans);font-size:11px;color:rgba(244,236,216,.35);text-decoration:none;letter-spacing:.08em;">Vinos</a>
+        <a href="espumantes.html"     style="font-family:var(--sans);font-size:11px;color:rgba(244,236,216,.35);text-decoration:none;letter-spacing:.08em;">Espumantes</a>
+        <a href="personalizado.html"  style="font-family:var(--sans);font-size:11px;color:rgba(244,236,216,.35);text-decoration:none;letter-spacing:.08em;">Personalizado</a>
+        <a href="contacto.html"       style="font-family:var(--sans);font-size:11px;color:rgba(244,236,216,.35);text-decoration:none;letter-spacing:.08em;">Contacto</a>
+      </div>
+    </div>
+    <div class="footer__legal" style="text-align:center;">
+      © 2026 Bodega Cicchitti &middot; Matías Torrontegui 444, Rodeo de la Cruz, Mendoza &middot;
+      Beber con moderación &middot; Prohibida su venta a menores de 18 años
+    </div>
+  </footer>
+
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/5492614000000" class="whatsapp-fab" target="_blank" aria-label="WhatsApp">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.524 3.655 1.432 5.17L2.09 21.95l4.9-1.315A9.968 9.968 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 0 1-4.354-1.282l-.312-.185-3.237.868.875-3.178-.202-.326A7.962 7.962 0 0 1 4 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/></svg>
+  </a>
+
+  <!-- JS: datos primero, luego lógica de página -->
+  <script src="../js/wines-data.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/global.js"></script>
+  <script src="../js/linea.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+/**
+ * vino.js — Bodega Cicchitti
+ * ─────────────────────────────────────────────────────────────
+ * Popula la página de detalle de vino (vino.html) leyendo
+ * ?slug= de la URL y consultando wines-data.js.
+ *
+ * Al migrar a Sanity, reemplazar getWineBySlug() por una
+ * llamada a la API de Sanity. El resto del HTML no cambia.
+ * ─────────────────────────────────────────────────────────────
+ */
+
+(function () {
+  'use strict';
+
+  function getSlug() {
+    return new URLSearchParams(window.location.search).get('slug');
+  }
+
+  /* ── SYNC: setear data-attrs del nav ANTES de que nav.js los lea en DOMContentLoaded ── */
+  (function () {
+    const slug = getSlug();
+    if (!slug) return;
+    const data = getWineBySlug(slug);
+    if (!data) return;
+    const navEl = document.getElementById('main-nav');
+    if (navEl) {
+      navEl.dataset.backLabel = data.linea.nombre;
+      navEl.dataset.backHref  = 'linea.html?slug=' + data.linea.slug;
+    }
+  })();
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const slug = getSlug();
+    if (!slug) return;
+
+    const data = getWineBySlug(slug);
+    if (!data) return;
+
+    const { linea } = data;
+
+    /* ── Título y meta ── */
+    document.title = `${linea.nombre} ${data.varietal} — Bodega Cicchitti`;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', data.descripcion);
+
+    /* ── Hero — range tag ── */
+    const rangeTag = document.querySelector('.wine-hero__range-tag');
+    if (rangeTag) rangeTag.textContent = linea.nombre;
+
+    /* ── Hero — bg word ── */
+    const bgWord = document.querySelector('.wine-hero__bg-word');
+    if (bgWord) bgWord.textContent = data.varietal.toUpperCase();
+
+    /* ── Hero — cosecha ── */
+    const vintageNum = document.querySelector('.wine-hero__vintage-num');
+    if (vintageNum && data.cosecha) vintageNum.textContent = data.cosecha;
+
+    /* ── Hero — imagen de botella ── */
+    const bottleImg = document.querySelector('.wine-hero__bottle-img');
+    if (bottleImg) {
+      if (data.imagen) {
+        bottleImg.src = data.imagen;
+        bottleImg.alt = `${linea.nombre} ${data.varietal} — Bodega Cicchitti`;
+      } else {
+        /* Sin imagen: ocultar y mostrar un placeholder visual */
+        bottleImg.style.display = 'none';
+      }
+    }
+
+    /* ── Hero info ── */
+    const heroEyebrow = document.querySelector('.wine-hero__eyebrow');
+    if (heroEyebrow) heroEyebrow.textContent = 'Bodega Cicchitti';
+
+    const heroName = document.querySelector('.wine-hero__name');
+    if (heroName) heroName.textContent = linea.nombre;
+
+    const heroVarietal = document.querySelector('.wine-hero__varietal');
+    if (heroVarietal) heroVarietal.textContent = data.varietal;
+
+    const heroTagline = document.querySelector('.wine-hero__tagline');
+    if (heroTagline && data.tagline) heroTagline.textContent = data.tagline;
+
+    /* ── Hero meta ── */
+    const metaValues = document.querySelectorAll('.wine-hero__meta-value');
+    if (metaValues.length >= 3) {
+      metaValues[0].textContent = data.varietal_full || data.varietal;
+      metaValues[1].innerHTML   = data.vinedo ? data.vinedo.replace(', ', '<br>') : '—';
+      metaValues[2].textContent = data.altitud || '—';
+    }
+
+    /* ── Sección "Otros vinos de la línea" ── */
+    const otherSection = document.querySelector('.other-wines');
+    if (otherSection && linea.vinos.length > 1) {
+      const otherTitle = otherSection.querySelector('.other-wines__title');
+      if (otherTitle) {
+        otherTitle.innerHTML = `Otros vinos <em>${linea.nombre}.</em>`;
+      }
+
+      const grid = otherSection.querySelector('.other-wines__grid');
+      if (grid) {
+        const siblings = linea.vinos.filter(v => v.slug !== slug);
+        const ARROW = `<svg width="12" height="9" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M9 1L13 5L9 9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+        grid.innerHTML = siblings.slice(0, 4).map((v, i) => `
+          <a href="vino.html?slug=${v.slug}" class="other-wines__card other-wines__card--light reveal delay-${i}">
+            <div class="other-wines__img-wrap other-wines__img-wrap--light">
+              ${v.imagen
+                ? `<img class="other-wines__card-img" src="${v.imagen}" alt="${v.varietal}" loading="lazy">`
+                : `<div style="display:flex;align-items:center;justify-content:center;height:100%;color:rgba(75,15,26,0.2);font-family:var(--serif);font-size:13px;font-style:italic;">${v.varietal}</div>`
+              }
+            </div>
+            <div class="other-wines__card-body">
+              <div class="other-wines__card-range">${linea.nombre}</div>
+              <div class="other-wines__card-name">${v.varietal}</div>
+              <div class="other-wines__card-link">Ver vino ${ARROW}</div>
+            </div>
+          </a>`).join('');
+      }
+    } else if (otherSection && linea.vinos.length === 1) {
+      /* Si es el único vino de la línea, redirigir a otras líneas */
+      const otherTitle = otherSection.querySelector('.other-wines__title');
+      if (otherTitle) otherTitle.innerHTML = `Explorá<br><em>otras líneas.</em>`;
+    }
+
+    /* Activar reveals en los elementos recién modificados */
+    if (typeof initReveal === 'function') initReveal();
+  });
+})();

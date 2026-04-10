@@ -1,0 +1,237 @@
+/* ══════════════════════════════════════════
+   CICCHITTI — ETIQUETA PERSONALIZADA
+══════════════════════════════════════════ */
+
+/* ── HERO ── */
+.pers-hero {
+  background: var(--dark);
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 140px 80px 0;
+  gap: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.pers-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 80% 60%, rgba(75,15,26,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.pers-hero__content { position: relative; z-index: 1; }
+.pers-hero__title {
+  font-size: clamp(44px, 5.5vw, 80px);
+  color: var(--cream);
+  line-height: 1.08;
+  margin: 16px 0 28px;
+}
+.pers-hero__desc {
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255,255,240,0.65);
+  max-width: 460px;
+  margin-bottom: 40px;
+}
+.pers-hero__actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.pers-hero__visual {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 40px;
+}
+.pers-hero__bottle-placeholder {
+  width: 200px;
+  height: 520px;
+  border: 0.5px solid rgba(200,169,110,0.2);
+  border-radius: 80px 80px 20px 20px;
+  background: linear-gradient(160deg, rgba(200,169,110,0.08) 0%, transparent 60%);
+}
+
+/* ── USOS ── */
+.pers-usos {
+  background: var(--cream-deep);
+  padding: 100px 80px;
+}
+.pers-usos__inner { max-width: 1200px; margin: 0 auto; }
+.pers-usos__header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.pers-usos__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.pers-uso-card {
+  background: var(--cream);
+  border: 0.5px solid rgba(75,15,26,0.08);
+  border-radius: 2px;
+  padding: 40px 36px;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.pers-uso-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(14,10,8,0.08);
+}
+.pers-uso-card__icon {
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.pers-uso-card__title {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+.pers-uso-card__desc {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(14,10,8,0.6);
+}
+
+/* ── PROCESO ── */
+.pers-proceso {
+  background: var(--dark);
+  padding: 100px 80px;
+}
+.pers-proceso__inner { max-width: 1000px; margin: 0 auto; }
+.pers-proceso__header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+.pers-proceso__header .section-title { color: var(--cream); }
+.pers-proceso__subtitle {
+  font-family: var(--sans);
+  font-size: 15px;
+  color: rgba(255,255,240,0.5);
+  margin-top: 12px;
+}
+.pers-proceso__steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.pers-step {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  padding: 36px;
+  border: 0.5px solid rgba(200,169,110,0.15);
+  border-radius: 2px;
+  transition: border-color 0.25s;
+}
+.pers-step:hover { border-color: rgba(200,169,110,0.35); }
+.pers-step__num {
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 300;
+  color: var(--gold);
+  opacity: 0.6;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.pers-step__title {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--cream);
+  margin-bottom: 10px;
+}
+.pers-step__desc {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.75;
+  color: rgba(255,255,240,0.5);
+}
+
+/* ── VINOS DISPONIBLES ── */
+.pers-vinos {
+  background: var(--cream-deep);
+  padding: 100px 80px;
+}
+.pers-vinos__inner { max-width: 1200px; margin: 0 auto; }
+.pers-vinos__header {
+  margin-bottom: 48px;
+}
+.pers-vinos__header p {
+  font-family: var(--sans);
+  font-size: 14px;
+  color: rgba(14,10,8,0.55);
+  margin-top: 12px;
+}
+.pers-vinos__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.pers-vino-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 28px 24px;
+  background: var(--cream);
+  border: 0.5px solid rgba(75,15,26,0.08);
+  border-radius: 2px;
+  text-decoration: none;
+  color: var(--dark);
+  transition: background 0.2s, transform 0.2s;
+  min-height: 100px;
+}
+.pers-vino-card:hover { background: white; transform: translateY(-2px); }
+.pers-vino-card__name {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 500;
+}
+.pers-vino-card__count {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(14,10,8,0.4);
+}
+.pers-vino-card svg { color: var(--gold); }
+
+/* ── CTA ── */
+.pers-cta {
+  background: var(--wine);
+  padding: 100px 80px;
+  text-align: center;
+}
+.pers-cta__inner { max-width: 640px; margin: 0 auto; }
+.pers-cta .section-title { color: var(--cream); margin: 16px 0 20px; }
+.pers-cta__desc {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(255,255,240,0.65);
+  margin-bottom: 36px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .pers-hero {
+    grid-template-columns: 1fr;
+    padding: 120px 32px 0;
+    gap: 40px;
+  }
+  .pers-hero__visual { display: none; }
+  .pers-usos { padding: 72px 32px; }
+  .pers-usos__grid { grid-template-columns: 1fr 1fr; }
+  .pers-proceso { padding: 72px 32px; }
+  .pers-proceso__steps { grid-template-columns: 1fr; }
+  .pers-vinos { padding: 72px 32px; }
+  .pers-vinos__grid { grid-template-columns: repeat(2, 1fr); }
+  .pers-cta { padding: 72px 32px; }
+}
+@media (max-width: 600px) {
+  .pers-usos__grid { grid-template-columns: 1fr; }
+  .pers-vinos__grid { grid-template-columns: 1fr 1fr; }
+  .pers-hero__actions { flex-direction: column; }
+}

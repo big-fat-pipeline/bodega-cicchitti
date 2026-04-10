@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Toda la colección de vinos Bodega Cicchitti — Emblema, Edición Limitada, Gran Reserva, Blend, Colección, Primmo y EsteOeste. Mendoza, Argentina.">
+  <title>Vinos — Bodega Cicchitti</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/nav-footer.css">
+  <link rel="stylesheet" href="../css/vinos.css">
+</head>
+<body>
+
+  <!-- ══════ NAV ══════ -->
+  <nav class="nav" id="main-nav" data-current="vinos"></nav>
+
+  <!-- ══════ HERO ══════ -->
+  <section class="vinos-hero">
+    <div class="vinos-hero__left">
+      <div class="section-tag light vinos-hero__eyebrow reveal" style="margin-bottom:20px;">Nuestra selección</div>
+      <h1 class="section-title vinos-hero__title reveal delay-1">
+        Vinos que cuentan<br><em>una historia.</em>
+      </h1>
+    </div>
+    <div class="vinos-hero__right reveal delay-2">
+      <p class="vinos-hero__desc">
+        Desde varietales emblemáticos hasta ensambles únicos, cada línea expresa un momento distinto de nuestra tierra y nuestra familia.
+      </p>
+      <div class="vinos-hero__stats">
+        <div>
+          <div class="vinos-hero__stat-num">7</div>
+          <div class="vinos-hero__stat-lbl">Líneas de vino</div>
+        </div>
+        <div>
+          <div class="vinos-hero__stat-num">18+</div>
+          <div class="vinos-hero__stat-lbl">Varietales</div>
+        </div>
+        <div>
+          <div class="vinos-hero__stat-num">40+</div>
+          <div class="vinos-hero__stat-lbl">Años</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════ TORN ══════ -->
+  <div class="torn-to-cream"></div>
+
+  <!-- ══════ CATÁLOGO ══════ -->
+  <section class="catalogo">
+    <div class="catalogo__header reveal">
+      <div>
+        <div class="section-tag dark" style="margin-bottom:12px;">Colección completa</div>
+        <h2 class="section-title catalogo__title">Explorá cada línea.</h2>
+      </div>
+      <div class="catalogo__hint">7 líneas · 18+ varietales</div>
+    </div>
+
+    <div class="catalogo__grid" id="catalogo-grid">
+      <!-- JS renderiza las líneas desde wines-data.js -->
+    </div>
+  </section>
+
+  <!-- ══════ SOIGNÉ CTA ══════ -->
+  <section class="vinos-soigne">
+    <div class="reveal">
+      <div class="vinos-soigne__eyebrow">Espumantes</div>
+      <h2 class="vinos-soigne__title">Soigné — <em>hecho con esmero.</em></h2>
+      <p class="vinos-soigne__desc">
+        Método champenoise, perlaje fino y aromas complejos. Dos variedades que celebran la pasión por el vino espumoso.
+      </p>
+    </div>
+    <div class="vinos-soigne__action reveal delay-2">
+      <a href="espumantes.html" class="btn btn--outline-light" style="font-size:10.5px;padding:14px 36px;">
+        Descubrí Soigné
+        <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M9 1L13 5L9 9" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ══════ FOOTER ══════ -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <span class="footer__logo">Cicchitti</span>
+        <span class="footer__logo-sub">Bodega Familiar · Mendoza</span>
+        <p>Vinos elaborados familiarmente para celebrar la vida, desde Rodeo de la Cruz.</p>
+        <div class="footer__address">
+          Matías Torrontegui 444<br>
+          Rodeo de la Cruz, M5525<br>
+          Mendoza, Argentina
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Vinos</h4>
+        <ul>
+          <li><a href="linea.html?slug=emblema">Emblema</a></li>
+          <li><a href="linea.html?slug=edicion-limitada">Edición Limitada</a></li>
+          <li><a href="linea.html?slug=gran-reserva">Gran Reserva</a></li>
+          <li><a href="linea.html?slug=blend">Blend</a></li>
+          <li><a href="linea.html?slug=coleccion">Colección</a></li>
+          <li><a href="linea.html?slug=primmo">Primmo</a></li>
+          <li><a href="linea.html?slug=esteoeste">EsteOeste</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Bodega</h4>
+        <ul>
+          <li><a href="bodega.html">Nuestra historia</a></li>
+          <li><a href="#">Viñedos</a></li>
+          <li><a href="espumantes.html">Espumantes</a></li>
+          <li><a href="personalizado.html">Personalizado</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="contacto.html">Escribinos</a></li>
+          <li><a href="https://wa.me/5492614000000">WhatsApp</a></li>
+          <li><a href="https://instagram.com/bodegacicchitti" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__legal">
+        © 2026 Bodega Cicchitti &middot; Beber con moderación &middot; Prohibida su venta a menores de 18 años
+      </div>
+      <div class="footer__social">
+        <a href="https://instagram.com/bodegacicchitti" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5492614000000" class="whatsapp-fab" target="_blank" aria-label="WhatsApp">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.524 3.655 1.432 5.17L2.09 21.95l4.9-1.315A9.968 9.968 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 0 1-4.354-1.282l-.312-.185-3.237.868.875-3.178-.202-.326A7.962 7.962 0 0 1 4 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/></svg>
+  </a>
+
+  <script src="../js/wines-data.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/global.js"></script>
+  <script src="../js/vinos.js"></script>
+
+</body>
+</html>

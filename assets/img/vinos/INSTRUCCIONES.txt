@@ -1,0 +1,37 @@
+IMÁGENES DE VINOS — BODEGA CICCHITTI
+=====================================
+
+Carpeta: assets/img/vinos/
+
+CONVENCIÓN DE NOMBRES:
+  [slug-del-vino].[ext]
+
+  Ejemplos:
+    emblema-malbec.webp
+    edicion-limitada-malbec.webp
+    edicion-limitada-cabernet-sauvignon.webp
+    gran-reserva-malbec.webp
+    blend-cabernet-franc-cabernet-sauvignon.webp
+    blend-malbec-cabernet-sauvignon-merlot.webp
+    blend-superterra.webp
+    coleccion-malbec.webp
+    coleccion-cabernet-sauvignon.webp
+    coleccion-sangiovese.webp
+    coleccion-merlot.webp
+    coleccion-pinot-noir.webp
+    coleccion-chardonnay.webp
+    coleccion-sauvignon-blanc.webp
+    coleccion-blanco-de-malbec.webp
+    coleccion-rosado.webp
+    coleccion-nectar.webp
+    primmo-malbec.webp
+    primmo-cabernet-sauvignon.webp
+    esteoeste-malbec.webp
+    soigne-chardonnay.webp
+    soigne-pinot-noir.webp
+
+FORMATOS ACEPTADOS: .webp (preferido), .png, .jpg
+TAMAÑO RECOMENDADO: mínimo 600px de alto, fondo transparente (PNG/WebP)
+
+Una vez subidas las imágenes, actualizar las rutas en js/wines-data.js:
+  imagen: '../assets/img/vinos/emblema-malbec.webp'
