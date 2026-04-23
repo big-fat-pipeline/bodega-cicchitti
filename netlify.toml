@@ -4,10 +4,31 @@
 [build]
   publish = "."
 
-# Redireccionamiento para que la raíz sirva index.html
+# /pages/x.html → /x  (elimina carpeta y extensión)
 [[redirects]]
-  from = "/"
-  to = "/index.html"
+  from = "/pages/*.html"
+  to = "/:splat"
+  status = 301
+  force = true
+
+# /pages/x → /x  (elimina carpeta)
+[[redirects]]
+  from = "/pages/*"
+  to = "/:splat"
+  status = 301
+  force = true
+
+# /x.html → /x  (elimina extensión, para index u otros archivos en raíz)
+[[redirects]]
+  from = "/*.html"
+  to = "/:splat"
+  status = 301
+  force = true
+
+# /x → sirve internamente /pages/x.html (URL limpia sin carpeta ni extensión)
+[[redirects]]
+  from = "/*"
+  to = "/pages/:splat.html"
   status = 200
 
 # Headers de seguridad

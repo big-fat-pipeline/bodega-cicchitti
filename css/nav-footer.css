@@ -157,10 +157,9 @@
   margin-bottom: 20px;
 }
 .footer__brand p {
-  font-family: var(--serif);
-  font-size: 14.5px;
-  font-style: italic;
-  color: rgba(244,236,216,0.42);
+  font-family: var(--sans);
+  font-size: 12px;
+  color: rgba(244,236,216,0.72);
   line-height: 1.7;
   max-width: 240px;
   margin-bottom: 18px;
@@ -168,7 +167,7 @@
 .footer__address {
   font-family: var(--sans);
   font-size: 11px;
-  color: rgba(244,236,216,0.28);
+  color: rgba(244,236,216,0.55);
   line-height: 1.72;
   letter-spacing: 0.04em;
 }
@@ -191,12 +190,12 @@
 .footer__col a {
   font-family: var(--sans);
   font-size: 12px;
-  color: rgba(244,236,216,0.42);
+  color: rgba(244,236,216,0.75);
   text-decoration: none;
   letter-spacing: 0.04em;
   transition: color 0.25s;
 }
-.footer__col a:hover { color: rgba(244,236,216,0.82); }
+.footer__col a:hover { color: var(--cream); }
 
 .footer__bottom {
   display: flex;
@@ -208,7 +207,7 @@
 .footer__legal {
   font-family: var(--sans);
   font-size: 10px;
-  color: rgba(244,236,216,0.2);
+  color: rgba(244,236,216,0.45);
   letter-spacing: 0.06em;
   line-height: 1.6;
 }
@@ -221,7 +220,7 @@
   font-size: 9.5px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(244,236,216,0.36);
+  color: rgba(244,236,216,0.6);
   text-decoration: none;
   transition: color 0.25s;
   display: flex;

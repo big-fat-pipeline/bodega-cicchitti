@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sumate al equipo comercial de Bodega Cicchitti. Completá el formulario y dejanos tu CV.">
+  <title>Trabajá con nosotros — Bodega Cicchitti</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/nav-footer.css">
+  <link rel="stylesheet" href="../css/postularme.css">
+</head>
+<body>
+
+  <!-- ══════ NAV ══════ -->
+  <nav class="nav" id="main-nav" data-current=""></nav>
+
+  <!-- ══════ HERO ══════ -->
+  <section class="cv-hero">
+    <div class="cv-hero__content">
+      <div class="section-tag light centered reveal">Oportunidades laborales</div>
+      <h1 class="section-title cv-hero__title reveal delay-1">
+        Sumate a nuestro<br><em>equipo comercial.</em>
+      </h1>
+      <p class="cv-hero__desc reveal delay-2">
+        Si te apasiona el vino y tenés perfil comercial, este lugar puede ser para vos. Buscamos personas proactivas, con ganas de vender, y que disfruten del mundo del vino.
+      </p>
+    </div>
+    <div class="torn-to-cream"></div>
+  </section>
+
+  <!-- ══════ CONTENIDO PRINCIPAL ══════ -->
+  <section class="cv-main">
+    <div class="cv-main__inner">
+
+      <!-- Formulario -->
+      <div class="cv-form-wrap reveal">
+        <h2 class="cv-form-wrap__title">Completá tus datos y postulate</h2>
+        <form class="cv-form" id="cv-form" novalidate enctype="multipart/form-data">
+          
+          <div class="cv-form__row">
+            <div class="cv-form__field">
+              <label for="cv-nombre" class="cv-form__label">Nombre y Apellido</label>
+              <input type="text" id="cv-nombre" name="nombre" class="cv-form__input" placeholder="Tu nombre completo" required autocomplete="name">
+            </div>
+            <div class="cv-form__field">
+              <label for="cv-email" class="cv-form__label">Email</label>
+              <input type="email" id="cv-email" name="email" class="cv-form__input" placeholder="tu@email.com" required autocomplete="email">
+            </div>
+          </div>
+          
+          <div class="cv-form__row">
+            <div class="cv-form__field">
+              <label for="cv-tel" class="cv-form__label">Teléfono / WhatsApp</label>
+              <input type="tel" id="cv-tel" name="telefono" class="cv-form__input" placeholder="+54 9 261..." required autocomplete="tel">
+            </div>
+            <div class="cv-form__field">
+              <label for="cv-perfil" class="cv-form__label">¿Tenés perfil comercial?</label>
+              <select id="cv-perfil" name="perfil_comercial" class="cv-form__select" required>
+                <option value="">Seleccionar...</option>
+                <option value="si">Sí, tengo perfil comercial y experiencia</option>
+                <option value="no">No, pero tengo mucho interés en aprender</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="cv-form__field">
+            <label for="cv-file" class="cv-form__label">Adjuntar CV (PDF, DOCX)</label>
+            <input type="file" id="cv-file" name="archivo_cv" class="cv-form__input" accept=".pdf,.doc,.docx" required>
+          </div>
+          
+          <div class="cv-form__field">
+            <label for="cv-mensaje" class="cv-form__label">Mensaje / Presentación (opcional)</label>
+            <textarea id="cv-mensaje" name="mensaje" class="cv-form__textarea" placeholder="Contanos brevemente sobre vos o por qué te gustaría sumarte a Bodega Cicchitti..." rows="4"></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn--gold cv-form__submit">
+            Enviar postulación
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+              <path d="M1 5H13M9 1L13 5L9 9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          
+          <div class="cv-form__status" id="cv-status" aria-live="polite"></div>
+        </form>
+      </div>
+
+      <!-- Info de contacto -->
+      <div class="cv-info reveal delay-2">
+        <div class="cv-info__block">
+          <h3 class="cv-info__title">¿Qué buscamos?</h3>
+          <p class="cv-info__text">
+            Personas con actitud proactiva, ganas de vender en equipo y que quieran transmitir la pasión que tenemos por hacer buenos vinos desde 1983.
+          </p>
+        </div>
+        <div class="cv-info__block">
+          <h3 class="cv-info__title">Postulá directo por Email</h3>
+          <p class="cv-info__text">
+            Si tenés algún inconveniente con el formulario o preferís enviar material extra, podés mandarnos tu CV directo a nuestra casilla de Recursos Humanos:
+            <a href="mailto:rrhh@bodegacicchitti.com" class="cv-info__email">rrhh@bodegacicchitti.com</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════ FOOTER ══════ -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <span class="footer__logo">Cicchitti</span>
+        <span class="footer__logo-sub">Bodega Familiar · Mendoza</span>
+        <p>Vinos elaborados familiarmente para celebrar la vida, desde Rodeo de la Cruz.</p>
+        <div class="footer__address">
+          Matías Torrontegui 444<br>
+          Rodeo de la Cruz, M5525<br>
+          Mendoza, Argentina
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Vinos</h4>
+        <ul>
+          <li><a href="/linea?slug=emblema">Emblema</a></li>
+          <li><a href="/linea?slug=edicion-limitada">Edición Limitada</a></li>
+          <li><a href="/linea?slug=gran-reserva">Gran Reserva</a></li>
+          <li><a href="/linea?slug=blend">Blend</a></li>
+          <li><a href="/linea?slug=coleccion">Colección</a></li>
+          <li><a href="/linea?slug=primmo">Primmo</a></li>
+          <li><a href="/linea?slug=esteoeste">EsteOeste</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Bodega</h4>
+        <ul>
+          <li><a href="/bodega">Nuestra historia</a></li>
+          <li><a href="#">Viñedos</a></li>
+          <li><a href="/espumantes">Espumantes</a></li>
+          <li><a href="/personalizado">Personalizado</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="/contacto">Escribinos</a></li>
+          <li><a href="https://wa.me/5492614000000">WhatsApp</a></li>
+          <li><a href="https://instagram.com/bodegacicchitti" target="_blank">Instagram</a></li>
+          <li><a href="/postularme">Trabajá con nosotros</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__legal">
+        © 2026 Bodega Cicchitti &middot; Beber con moderación &middot; Prohibida su venta a menores de 18 años
+      </div>
+      <div class="footer__social">
+        <a href="https://instagram.com/bodegacicchitti" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5492614000000" class="whatsapp-fab" target="_blank" aria-label="WhatsApp">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.524 3.655 1.432 5.17L2.09 21.95l4.9-1.315A9.968 9.968 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 0 1-4.354-1.282l-.312-.185-3.237.868.875-3.178-.202-.326A7.962 7.962 0 0 1 4 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/></svg>
+  </a>
+
+  <!-- JS -->
+  <script src="../js/wines-data.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/global.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('cv-form');
+      const status = document.getElementById('cv-status');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        // Emulación de envío exitoso
+        status.textContent = '¡Postulación enviada correctamente! Nos pondremos en contacto pronto.';
+        status.className = 'cv-form__status cv-form__status--ok';
+        form.reset();
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -15,6 +15,33 @@
   padding-top: var(--nav-height);
 }
 
+/* Variante con imagen de fondo */
+.line-hero--has-img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.line-hero__img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(14,10,8,0.72) 0%,
+    rgba(14,10,8,0.52) 50%,
+    rgba(14,10,8,0.82) 100%
+  );
+  z-index: 1;
+}
+
+/* Elementos del hero sobre el overlay */
+.line-hero--has-img .line-hero__ornament,
+.line-hero--has-img .line-hero__bg-word,
+.line-hero--has-img .line-hero__inner,
+.line-hero--has-img .line-hero__scroll {
+  z-index: 2;
+}
+
 .line-hero__bg-word {
   position: absolute;
   bottom: -40px;
@@ -128,10 +155,9 @@
 }
 
 .line-hero__desc {
-  font-family: var(--serif);
-  font-size: clamp(16px, 2vw, 20px);
+  font-family: var(--sans);
+  font-size: clamp(13px, 1.5vw, 16px);
   font-weight: 300;
-  font-style: italic;
   color: rgba(244,236,216,0.55);
   line-height: 1.75;
   max-width: 560px;
@@ -196,25 +222,7 @@
 
 /* ── SEPARADOR FADE (oscuro → crema) ── */
 .line-torn {
-  width: 100%;
-  height: 320px;
-  margin-top: -320px;
-  position: relative;
-  z-index: 10;
-  pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgba(245, 245, 230, 0)    0%,
-    rgba(245, 245, 230, 0)    18%,
-    rgba(245, 245, 230, 0.45) 50%,
-    rgba(245, 245, 230, 0.88) 72%,
-    rgba(245, 245, 230, 1)    85%,
-    #F5F5E6                   100%
-  );
-}
-
-@media (max-width: 960px) {
-  .line-torn { height: 200px; margin-top: -200px; }
+  display: none;
 }
 
 /* ── SECCIÓN VINOS ── */
@@ -306,9 +314,8 @@
   opacity: 0.3;
 }
 .line-card__img-placeholder span {
-  font-family: var(--serif);
-  font-size: 13px;
-  font-style: italic;
+  font-family: var(--sans);
+  font-size: 11px;
   color: rgba(75,15,26,0.25);
   letter-spacing: 0.06em;
 }
@@ -340,10 +347,9 @@
 }
 
 .line-card__desc {
-  font-family: var(--serif);
-  font-size: 14.5px;
+  font-family: var(--sans);
+  font-size: 13px;
   font-weight: 300;
-  font-style: italic;
   color: rgba(75,15,26,0.55);
   line-height: 1.72;
   flex: 1;

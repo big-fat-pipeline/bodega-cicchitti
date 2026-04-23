@@ -66,6 +66,27 @@
   text-transform: uppercase; color: rgba(244,236,216,0.2);
 }
 
+/* Premios */
+.wine-hero__awards {
+  position: absolute;
+  top: 48px;
+  right: 48px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wine-hero__award-img {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+  transition: transform 0.25s;
+}
+.wine-hero__award-img:hover {
+  transform: scale(1.08);
+}
+
 /* Columna derecha — info */
 .wine-hero__info {
   background: var(--dark);
@@ -94,7 +115,7 @@
   width: 40px; height: 0.5px; background: rgba(200,169,110,0.3); margin-bottom: 36px;
 }
 .wine-hero__tagline {
-  font-family: var(--serif); font-size: 18px; font-style: italic;
+  font-family: var(--sans); font-size: 14px;
   font-weight: 300; color: rgba(244,236,216,0.6); line-height: 1.75;
   max-width: 420px; margin-bottom: 44px;
 }
@@ -135,7 +156,7 @@
 .tasting__eyebrow::before { content: ''; width: 22px; height: 0.5px; background: rgba(75,15,26,0.3); }
 .tasting__title { font-size: clamp(36px, 4vw, 54px); color: var(--wine); }
 .tasting__intro {
-  font-family: var(--serif); font-size: 17px; font-style: italic;
+  font-family: var(--sans); font-size: 13px;
   font-weight: 300; color: rgba(75,15,26,0.55); max-width: 360px;
   line-height: 1.75; text-align: right;
 }
@@ -161,8 +182,8 @@
   color: var(--wine); margin-bottom: 12px; line-height: 1.2;
 }
 .tasting__card-desc {
-  font-family: var(--serif); font-size: 15.5px; font-weight: 300;
-  font-style: italic; color: rgba(75,15,26,0.65); line-height: 1.75;
+  font-family: var(--sans); font-size: 13px; font-weight: 300;
+  color: rgba(75,15,26,0.65); line-height: 1.75;
 }
 
 .tasting__aromas { display: flex; align-items: flex-start; gap: 52px; margin-bottom: 56px; flex-wrap: wrap; }
@@ -172,7 +193,7 @@
 }
 .tasting__chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .tasting__chip {
-  font-family: var(--serif); font-size: 14px; font-style: italic;
+  font-family: var(--sans); font-size: 11px; letter-spacing: 0.06em;
   color: rgba(75,15,26,0.75); border: 0.5px solid rgba(75,15,26,0.2);
   padding: 6px 18px; transition: all 0.25s; cursor: default; background: transparent;
 }
@@ -214,7 +235,7 @@
 .vineyard__eyebrow::before { content: ''; width: 22px; height: 0.5px; background: var(--gold); opacity: 0.6; }
 .vineyard__title { font-size: clamp(32px, 3.5vw, 48px); color: var(--cream); line-height: 1.1; margin-bottom: 28px; }
 .vineyard__desc {
-  font-family: var(--serif); font-size: 17px; font-style: italic;
+  font-family: var(--sans); font-size: 14px;
   font-weight: 300; color: rgba(244,236,216,0.55); line-height: 1.78;
   margin-bottom: 44px; max-width: 400px;
 }

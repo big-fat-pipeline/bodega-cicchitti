@@ -7,9 +7,9 @@
 
 /* ── VARIABLES ── */
 :root {
-  --cream:       #FFFFF0;
-  --cream-deep:  #F5F5E6;
-  --cream-bg:    #FAFAF0;
+  --cream:       #F9F9F6;
+  --cream-deep:  #F0F0EC;
+  --cream-bg:    #F5F5F2;
   --gold:        #C8A96E;
   --gold-dim:    #9A7A4A;
   --gold-light:  #E8D09A;
@@ -86,28 +86,7 @@ body::after {
    a través del cream transparente → no hay banda gris.
 ── */
 .torn-to-cream {
-  width: 100%;
-  height: 320px;
-  margin-top: -320px;   /* se superpone al hero, sin ocupar espacio extra */
-  position: relative;
-  z-index: 10;
-  pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgba(245, 245, 230, 0)    0%,
-    rgba(245, 245, 230, 0)    18%,
-    rgba(245, 245, 230, 0.45) 50%,
-    rgba(245, 245, 230, 0.88) 72%,
-    rgba(245, 245, 230, 1)    85%,
-    #F5F5E6                   100%
-  );
-}
-
-@media (max-width: 960px) {
-  .torn-to-cream {
-    height: 200px;
-    margin-top: -200px;
-  }
+  display: none;
 }
 
 /* ── SECTION TAG (eyebrow) ── */
@@ -131,6 +110,19 @@ body::after {
 .section-tag.light::before  { background: var(--gold); }
 .section-tag.dark           { color: var(--wine); }
 .section-tag.dark::before   { background: var(--wine); }
+
+/* Variante centrada: línea en ambos lados */
+.section-tag.centered {
+  justify-content: center;
+}
+.section-tag.centered::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 0.5px;
+}
+.section-tag.centered.light::after { background: var(--gold); }
+.section-tag.centered.dark::after  { background: var(--wine); }
 
 /* ── SECTION TITLE ── */
 .section-title {

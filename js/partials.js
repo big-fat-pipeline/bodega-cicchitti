@@ -12,39 +12,21 @@
 ───────────────────────────────────────── */
 const NAV_MAIN = `
 <nav class="nav" id="main-nav">
-  <a href="../index.html" class="nav__logo">
+  <a href="/" class="nav__logo">
     Cicchitti
     <span>Bodega Familiar · Mendoza</span>
   </a>
   <ul class="nav__links">
-    <li><a href="../pages/vinos.html">Vinos</a></li>
-    <li><a href="../pages/espumantes.html">Espumantes</a></li>
-    <li><a href="../pages/bodega.html">Bodega</a></li>
-    <li><a href="../pages/vinedos.html">Viñedos</a></li>
+    <li><a href="/vinos">Vinos</a></li>
+    <li><a href="/espumantes">Espumantes</a></li>
+    <li><a href="/bodega">Bodega</a></li>
+    <li><a href="#">Viñedos</a></li>
   </ul>
   <div class="nav__actions">
-    <a href="../pages/contacto.html" class="btn btn--outline-light" style="font-size:10px;padding:9px 20px;">Contacto</a>
-    <a href="../pages/personalizado.html" class="btn btn--gold" style="font-size:10px;padding:9px 20px;">Etiqueta Personalizada</a>
+    <a href="/contacto" class="btn btn--outline-light" style="font-size:10px;padding:9px 20px;">Contacto</a>
   </div>
 </nav>`;
 
-/* ─────────────────────────────────────────
-   NAV WINE DETAIL (sólida, con "Volver")
-───────────────────────────────────────── */
-const NAV_WINE = `
-<nav class="nav nav--solid" id="main-nav">
-  <a href="javascript:history.back()" class="nav__back">
-    <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
-      <path d="M13 5H1M5 9L1 5L5 1" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    Volver
-  </a>
-  <a href="../index.html" class="nav__logo nav__logo--center">
-    Cicchitti
-    <span>Bodega Familiar · Mendoza</span>
-  </a>
-  <a href="../pages/personalizado.html" class="btn btn--gold" style="font-size:10px;padding:9px 20px;">Etiqueta personalizada</a>
-</nav>`;
 
 /* ─────────────────────────────────────────
    FOOTER (igual en todas las páginas)
@@ -65,30 +47,30 @@ const FOOTER = `
     <div class="footer__col">
       <h4>Vinos</h4>
       <ul>
-        <li><a href="pages/vino.html?slug=emblema-malbec">Emblema</a></li>
-        <li><a href="pages/vino.html?slug=edicion-limitada-malbec">Edición Limitada</a></li>
-        <li><a href="pages/vino.html?slug=gran-reserva-malbec">Gran Reserva</a></li>
-        <li><a href="pages/vinos.html#blend">Blend</a></li>
-        <li><a href="pages/vinos.html#coleccion">Colección</a></li>
-        <li><a href="pages/vinos.html#primmo">Primmo</a></li>
+        <li><a href="/vino?slug=emblema-malbec">Emblema</a></li>
+        <li><a href="/vino?slug=edicion-limitada-malbec">Edición Limitada</a></li>
+        <li><a href="/vino?slug=gran-reserva-malbec">Gran Reserva</a></li>
+        <li><a href="/vinos#blend">Blend</a></li>
+        <li><a href="/vinos#coleccion">Colección</a></li>
+        <li><a href="/vinos#primmo">Primmo</a></li>
       </ul>
     </div>
     <div class="footer__col">
       <h4>Bodega</h4>
       <ul>
-        <li><a href="pages/bodega.html">Nuestra historia</a></li>
-        <li><a href="pages/vinedos.html">Viñedos</a></li>
-        <li><a href="pages/espumantes.html">Espumantes</a></li>
-        <li><a href="pages/personalizado.html">Personalizado</a></li>
+        <li><a href="/bodega">Nuestra historia</a></li>
+        <li><a href="#">Viñedos</a></li>
+        <li><a href="/espumantes">Espumantes</a></li>
+        <li><a href="/personalizado">Personalizado</a></li>
       </ul>
     </div>
     <div class="footer__col">
       <h4>Contacto</h4>
       <ul>
-        <li><a href="pages/contacto.html">Escribinos</a></li>
+        <li><a href="/contacto">Escribinos</a></li>
         <li><a href="https://wa.me/5492614000000">WhatsApp</a></li>
         <li><a href="https://instagram.com/bodegacicchitti" target="_blank">Instagram</a></li>
-        <li><a href="pages/postularse.html">Trabajá con nosotros</a></li>
+        <li><a href="/postularme">Trabajá con nosotros</a></li>
       </ul>
     </div>
   </div>

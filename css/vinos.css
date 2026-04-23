@@ -7,10 +7,6 @@
 .vinos-hero {
   background: var(--dark);
   padding: calc(var(--nav-height) + 80px) 72px 96px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: end;
   position: relative;
   overflow: hidden;
 }
@@ -30,7 +26,11 @@
   line-height: 1;
 }
 
-.vinos-hero__left {}
+.vinos-hero__inner {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
 
 .vinos-hero__eyebrow {
   margin-bottom: 20px;
@@ -39,27 +39,24 @@
 .vinos-hero__title {
   font-size: clamp(40px, 5.5vw, 72px);
   color: var(--cream);
+  margin-bottom: 28px;
 }
 .vinos-hero__title em { color: var(--gold); }
 
-.vinos-hero__right {
-  padding-bottom: 6px;
-}
-
 .vinos-hero__desc {
-  font-family: var(--serif);
-  font-size: 18px;
+  font-family: var(--sans);
+  font-size: 15px;
   font-weight: 300;
-  font-style: italic;
   color: rgba(244,236,216,0.45);
   line-height: 1.78;
-  max-width: 380px;
-  margin-bottom: 28px;
+  max-width: 480px;
+  margin: 0 auto 36px;
 }
 
 .vinos-hero__stats {
   display: flex;
   gap: 36px;
+  justify-content: center;
 }
 .vinos-hero__stat-num {
   font-family: var(--serif);
@@ -240,10 +237,9 @@
 }
 
 .linea-card__desc {
-  font-family: var(--serif);
-  font-size: 15px;
+  font-family: var(--sans);
+  font-size: 13px;
   font-weight: 300;
-  font-style: italic;
   color: rgba(75,15,26,0.5);
   line-height: 1.72;
   flex: 1;
@@ -320,10 +316,9 @@
 .vinos-soigne__title em { font-style: italic; color: var(--gold-light); }
 
 .vinos-soigne__desc {
-  font-family: var(--serif);
-  font-size: 17px;
+  font-family: var(--sans);
+  font-size: 14px;
   font-weight: 300;
-  font-style: italic;
   color: rgba(244,236,216,0.5);
   line-height: 1.72;
   max-width: 440px;

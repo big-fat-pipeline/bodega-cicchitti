@@ -30,7 +30,7 @@
         Creamos vinos con etiqueta personalizada para eventos, celebraciones y regalos corporativos. Un detalle que se recuerda.
       </p>
       <div class="pers-hero__actions reveal delay-3">
-        <a href="contacto.html" class="btn btn--gold">Solicitar cotización</a>
+        <a href="/contacto" class="btn btn--gold">Solicitar cotización</a>
         <a href="#como-funciona" class="btn btn--outline-light">Cómo funciona</a>
       </div>
     </div>
@@ -156,40 +156,64 @@
       <div class="section-tag light">¿Listo para empezar?</div>
       <h2 class="section-title">Diseñá tu etiqueta hoy</h2>
       <p class="pers-cta__desc">Completá el formulario y nos ponemos en contacto en menos de 24 horas con una propuesta.</p>
-      <a href="contacto.html?motivo=personalizado" class="btn btn--gold">Solicitar cotización</a>
+      <a href="/contacto?motivo=personalizado" class="btn btn--gold">Solicitar cotización</a>
     </div>
   </section>
 
   <!-- ══════ FOOTER ══════ -->
   <footer class="footer">
-    <div class="footer__inner">
+    <div class="footer__top">
       <div class="footer__brand">
-        <a href="../index.html" class="footer__logo">
-          <img src="../assets/img/logo.png" alt="Bodega Cicchitti" style="height:36px;filter:brightness(0) invert(1) sepia(1) saturate(0.5) hue-rotate(10deg);">
-        </a>
-        <p class="footer__tagline">Vinos mendocinos elaborados<br>familiarmente desde 1983.</p>
+        <span class="footer__logo">Cicchitti</span>
+        <span class="footer__logo-sub">Bodega Familiar · Mendoza</span>
+        <p>Vinos elaborados familiarmente para celebrar la vida, desde Rodeo de la Cruz.</p>
+        <div class="footer__address">
+          Matías Torrontegui 444<br>
+          Rodeo de la Cruz, M5525<br>
+          Mendoza, Argentina
+        </div>
       </div>
-      <div class="footer__nav">
-        <div class="footer__col">
-          <div class="footer__col-title">Vinos</div>
-          <a href="vinos.html" class="footer__link">Toda la colección</a>
-          <a href="espumantes.html" class="footer__link">Espumantes Soigné</a>
-        </div>
-        <div class="footer__col">
-          <div class="footer__col-title">Bodega</div>
-          <a href="bodega.html" class="footer__link">Nuestra historia</a>
-          <a href="personalizado.html" class="footer__link">Etiqueta personalizada</a>
-        </div>
-        <div class="footer__col">
-          <div class="footer__col-title">Contacto</div>
-          <a href="contacto.html" class="footer__link">Escribinos</a>
-          <a href="https://www.instagram.com/bodegacicchitti" target="_blank" rel="noopener" class="footer__link">Instagram</a>
-        </div>
+      <div class="footer__col">
+        <h4>Vinos</h4>
+        <ul>
+          <li><a href="/linea?slug=emblema">Emblema</a></li>
+          <li><a href="/linea?slug=edicion-limitada">Edición Limitada</a></li>
+          <li><a href="/linea?slug=gran-reserva">Gran Reserva</a></li>
+          <li><a href="/linea?slug=blend">Blend</a></li>
+          <li><a href="/linea?slug=coleccion">Colección</a></li>
+          <li><a href="/linea?slug=primmo">Primmo</a></li>
+          <li><a href="/linea?slug=esteoeste">EsteOeste</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Bodega</h4>
+        <ul>
+          <li><a href="/bodega">Nuestra historia</a></li>
+          <li><a href="#">Viñedos</a></li>
+          <li><a href="/espumantes">Espumantes</a></li>
+          <li><a href="/personalizado">Personalizado</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="/contacto">Escribinos</a></li>
+          <li><a href="https://wa.me/5492614000000">WhatsApp</a></li>
+          <li><a href="https://instagram.com/bodegacicchitti" target="_blank">Instagram</a></li>
+          <li><a href="/postularme">Trabajá con nosotros</a></li>
+        </ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <span>© 2025 Bodega Cicchitti. Todos los derechos reservados.</span>
-      <span>Mendoza, Argentina</span>
+      <div class="footer__legal">
+        © 2026 Bodega Cicchitti &middot; Beber con moderación &middot; Prohibida su venta a menores de 18 años
+      </div>
+      <div class="footer__social">
+        <a href="https://instagram.com/bodegacicchitti" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+          Instagram
+        </a>
+      </div>
     </div>
   </footer>
 
@@ -207,7 +231,7 @@
       if (!grid || typeof getAllLines !== 'function') return;
       const lines = getAllLines();
       grid.innerHTML = lines.map(l => `
-        <a href="linea.html?slug=${l.slug}" class="pers-vino-card">
+        <a href="/linea?slug=${l.slug}" class="pers-vino-card">
           <div class="pers-vino-card__name">${l.nombre}</div>
           <div class="pers-vino-card__count">${l.vinos.length} ${l.vinos.length === 1 ? 'varietal' : 'varietales'}</div>
           <svg width="12" height="9" viewBox="0 0 14 10" fill="none" style="margin-top:auto;">
