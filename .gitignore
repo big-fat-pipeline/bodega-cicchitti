@@ -9,3 +9,8 @@ Thumbs.db
 
 # Netlify
 .netlify/
+
+# Sanity Studio
+sanity/node_modules/
+sanity/dist/
+sanity/.sanity/

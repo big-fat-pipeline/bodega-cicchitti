@@ -19,7 +19,7 @@
 <body>
 
   <!-- ══════ NAV ══════ -->
-  <nav class="nav nav--light" id="main-nav" data-type="wine-detail"></nav>
+  <nav class="nav nav--solid" id="main-nav" data-current="vinos"></nav>
 
   <!-- ══════ HERO DEL VINO ══════ -->
   <section class="wine-hero wine-hero--light">
@@ -35,10 +35,7 @@
         class="wine-hero__bottle-img"
         src="http://bodegacicchitti.com/wp-content/uploads/2023/07/emblema_malbec.webp"
         alt="Emblema Malbec — Bodega Cicchitti">
-      <div class="wine-hero__vintage">
-        <div class="wine-hero__vintage-num">2021</div>
-        <div class="wine-hero__vintage-lbl">Cosecha</div>
-      </div>
+      <div class="wine-hero__awards" id="wine-awards"></div>
     </div>
 
     <!-- Columna info -->
@@ -59,17 +56,12 @@
           <div class="wine-hero__meta-label">Viñedo</div>
           <div class="wine-hero__meta-value">Altamira<br>Valle de Uco</div>
         </div>
-        <div class="wine-hero__meta-item">
-          <div class="wine-hero__meta-label">Altitud</div>
-          <div class="wine-hero__meta-value">1.100 msnm</div>
-        </div>
       </div>
       <div class="wine-hero__actions"  style="opacity:0;animation:wineIn .9s ease 1s forwards">
         <a href="http://bodegacicchitti.com/wp-content/uploads/2023/07/EMBLEMA-MALBEC-CICCHITTI.png" target="_blank" class="btn btn--outline-dark" style="font-size:10px;padding:12px 32px;">
           Ver ficha técnica
           <svg width="13" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M9 1L13 5L9 9" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="personalizado.html" class="btn btn--outline-dark" style="font-size:10px;padding:12px 32px;">Personalizar etiqueta</a>
       </div>
     </div>
   </section>
@@ -79,7 +71,7 @@
     <div class="other-wines__eyebrow reveal">Misma línea</div>
     <h2 class="section-title other-wines__title reveal delay-1">Otros vinos <em>Emblema.</em></h2>
     <div class="other-wines__grid other-wines__grid--light">
-      <a href="vino.html" class="other-wines__card other-wines__card--light reveal">
+      <a href="/vino" class="other-wines__card other-wines__card--light reveal">
         <div class="other-wines__img-wrap other-wines__img-wrap--light"><img class="other-wines__card-img" src="https://bodegacicchitti.com/wp-content/uploads/2023/07/ED-LIMITADA-MALBEC-CICCHITTI.png" alt="Edición Limitada"></div>
         <div class="other-wines__card-body">
           <div class="other-wines__card-range">Edición Limitada</div>
@@ -87,7 +79,7 @@
           <div class="other-wines__card-link">Ver vino <svg width="12" height="9" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M9 1L13 5L9 9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
       </a>
-      <a href="vino.html" class="other-wines__card other-wines__card--light reveal delay-1">
+      <a href="/vino" class="other-wines__card other-wines__card--light reveal delay-1">
         <div class="other-wines__img-wrap other-wines__img-wrap--light"><img class="other-wines__card-img" src="https://bodegacicchitti.com/wp-content/uploads/2023/07/GRAN-RES-MALBEC-CICCHITTI.png" alt="Gran Reserva"></div>
         <div class="other-wines__card-body">
           <div class="other-wines__card-range">Gran Reserva</div>
@@ -95,7 +87,7 @@
           <div class="other-wines__card-link">Ver vino <svg width="12" height="9" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M9 1L13 5L9 9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
       </a>
-      <a href="vino.html" class="other-wines__card other-wines__card--light reveal delay-2">
+      <a href="/vino" class="other-wines__card other-wines__card--light reveal delay-2">
         <div class="other-wines__img-wrap other-wines__img-wrap--light"><img class="other-wines__card-img" src="https://bodegacicchitti.com/wp-content/uploads/2023/07/BLEND-CFCS-CICCHITTI.png" alt="Blend"></div>
         <div class="other-wines__card-body">
           <div class="other-wines__card-range">Blend</div>
@@ -103,7 +95,7 @@
           <div class="other-wines__card-link">Ver vino <svg width="12" height="9" viewBox="0 0 14 10" fill="none"><path d="M1 5H13M9 1L13 5L9 9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </div>
       </a>
-      <a href="vino.html" class="other-wines__card other-wines__card--light reveal delay-3">
+      <a href="/vino" class="other-wines__card other-wines__card--light reveal delay-3">
         <div class="other-wines__img-wrap other-wines__img-wrap--light"><img class="other-wines__card-img" src="http://bodegacicchitti.com/wp-content/uploads/2023/07/Recurso-5.webp" alt="Primmo Malbec"></div>
         <div class="other-wines__card-body">
           <div class="other-wines__card-range">Primmo</div>
@@ -115,22 +107,59 @@
   </section>
 
   <!-- ══════ FOOTER ══════ -->
-  <footer class="footer" style="padding:52px 72px 32px;">
-    <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:28px;margin-bottom:24px;border-bottom:.5px solid rgba(244,236,216,.06);flex-wrap:wrap;gap:20px;">
-      <div>
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__brand">
         <span class="footer__logo">Cicchitti</span>
         <span class="footer__logo-sub">Bodega Familiar · Mendoza</span>
+        <p>Vinos elaborados familiarmente para celebrar la vida, desde Rodeo de la Cruz.</p>
+        <div class="footer__address">
+          Matías Torrontegui 444<br>
+          Rodeo de la Cruz, M5525<br>
+          Mendoza, Argentina
+        </div>
       </div>
-      <div style="display:flex;gap:28px;flex-wrap:wrap;">
-        <a href="../index.html#vinos" style="font-family:var(--sans);font-size:11px;color:rgba(244,236,216,.35);text-decoration:none;letter-spacing:.08em;transition:color .25s;">Vinos</a>
-        <a href="espumantes.html" style="font-family:var(--sans);font-size:11px;color:rgba(244,236,216,.35);text-decoration:none;letter-spacing:.08em;">Espumantes</a>
-        <a href="personalizado.html" style="font-family:var(--sans);font-size:11px;color:rgba(244,236,216,.35);text-decoration:none;letter-spacing:.08em;">Personalizado</a>
-        <a href="contacto.html" style="font-family:var(--sans);font-size:11px;color:rgba(244,236,216,.35);text-decoration:none;letter-spacing:.08em;">Contacto</a>
+      <div class="footer__col">
+        <h4>Vinos</h4>
+        <ul>
+          <li><a href="/linea?slug=emblema">Emblema</a></li>
+          <li><a href="/linea?slug=edicion-limitada">Edición Limitada</a></li>
+          <li><a href="/linea?slug=gran-reserva">Gran Reserva</a></li>
+          <li><a href="/linea?slug=blend">Blend</a></li>
+          <li><a href="/linea?slug=coleccion">Colección</a></li>
+          <li><a href="/linea?slug=primmo">Primmo</a></li>
+          <li><a href="/linea?slug=esteoeste">EsteOeste</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Bodega</h4>
+        <ul>
+          <li><a href="/bodega">Nuestra historia</a></li>
+          <li><a href="#">Viñedos</a></li>
+          <li><a href="/espumantes">Espumantes</a></li>
+          <li><a href="/personalizado">Personalizado</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="/contacto">Escribinos</a></li>
+          <li><a href="https://wa.me/5492614000000">WhatsApp</a></li>
+          <li><a href="https://instagram.com/bodegacicchitti" target="_blank">Instagram</a></li>
+          <li><a href="/postularme">Trabajá con nosotros</a></li>
+        </ul>
       </div>
     </div>
-    <div class="footer__legal" style="text-align:center;">
-      © 2026 Bodega Cicchitti &middot; Matías Torrontegui 444, Rodeo de la Cruz, Mendoza &middot;
-      Beber con moderación &middot; Prohibida su venta a menores de 18 años
+    <div class="footer__bottom">
+      <div class="footer__legal">
+        © 2026 Bodega Cicchitti &middot; Beber con moderación &middot; Prohibida su venta a menores de 18 años
+      </div>
+      <div class="footer__social">
+        <a href="https://instagram.com/bodegacicchitti" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+          Instagram
+        </a>
+      </div>
     </div>
   </footer>
 
@@ -142,7 +171,7 @@
     @keyframes wineIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 
-  <!-- JS: vino.js primero para setear data-attrs antes de nav.js -->
+  <script src="../js/sanity-client.js"></script>
   <script src="../js/wines-data.js"></script>
   <script src="../js/vino.js"></script>
   <script src="../js/nav.js"></script>

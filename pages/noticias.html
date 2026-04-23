@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" id="meta-desc" content="Línea de vinos Bodega Cicchitti — Mendoza.">
-  <title id="page-title">Línea — Bodega Cicchitti</title>
+  <meta name="description" content="Noticias y novedades de Bodega Cicchitti — premios, eventos, nuevas cosechas y más desde Mendoza, Argentina.">
+  <title>Noticias — Bodega Cicchitti</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,27 +14,42 @@
   <!-- CSS -->
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/nav-footer.css">
-  <link rel="stylesheet" href="../css/linea.css">
+  <link rel="stylesheet" href="../css/noticias.css">
 </head>
 <body>
 
   <!-- ══════ NAV ══════ -->
-  <nav class="nav" id="main-nav" data-current="vinos"></nav>
+  <nav class="nav" id="main-nav" data-current="noticias"></nav>
 
-  <!-- ══════ CONTENIDO DINÁMICO ══════
-       linea.js inyecta aquí:
-       · Hero de la línea
-       · Grid de vinos
-       · Sección "Otras líneas"
-  ══════════════════════════════════ -->
-  <main id="page-root">
-    <!-- Estado de carga -->
-    <div id="loading-state" style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--dark);">
-      <div style="font-family:var(--sans);font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:rgba(200,169,110,0.3);">
-        Cargando…
+  <!-- ══════ HERO ══════ -->
+  <section class="noticias-hero">
+    <div class="noticias-hero__inner">
+      <div class="section-tag light centered noticias-hero__eyebrow reveal" style="margin-bottom:20px;">Bodega Cicchitti</div>
+      <h1 class="section-title noticias-hero__title reveal delay-1">
+        Noticias de <em>nuestra bodega.</em>
+      </h1>
+      <p class="noticias-hero__desc reveal delay-2">
+        Novedades de cosecha, premios internacionales, eventos y todo lo que pasa en Rodeo de la Cruz.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════ TORN ══════ -->
+  <div class="torn-to-cream"></div>
+
+  <!-- ══════ GRILLA ══════ -->
+  <section class="noticias-section">
+    <div class="noticias-section__header reveal">
+      <div>
+        <div class="section-tag dark" style="margin-bottom:12px;">Últimas notas</div>
+        <h2 class="section-title noticias-section__title">Lo que está pasando.</h2>
       </div>
     </div>
-  </main>
+
+    <div class="noticias-grid" id="noticias-grid">
+      <!-- JS renderiza las noticias desde noticias-data.js -->
+    </div>
+  </section>
 
   <!-- ══════ FOOTER ══════ -->
   <footer class="footer">
@@ -68,6 +83,7 @@
           <li><a href="#">Viñedos</a></li>
           <li><a href="/espumantes">Espumantes</a></li>
           <li><a href="/personalizado">Personalizado</a></li>
+          <li><a href="/noticias">Noticias</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -93,17 +109,16 @@
     </div>
   </footer>
 
-  <!-- WhatsApp FAB -->
   <a href="https://wa.me/5492614000000" class="whatsapp-fab" target="_blank" aria-label="WhatsApp">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.524 3.655 1.432 5.17L2.09 21.95l4.9-1.315A9.968 9.968 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 0 1-4.354-1.282l-.312-.185-3.237.868.875-3.178-.202-.326A7.962 7.962 0 0 1 4 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/></svg>
   </a>
 
-  <!-- JS: datos primero, luego lógica de página -->
   <script src="../js/sanity-client.js"></script>
   <script src="../js/wines-data.js"></script>
+  <script src="../js/noticias-data.js"></script>
   <script src="../js/nav.js"></script>
   <script src="../js/global.js"></script>
-  <script src="../js/linea.js"></script>
+  <script src="../js/noticias.js"></script>
 
 </body>
 </html>

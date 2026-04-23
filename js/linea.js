@@ -2,10 +2,7 @@
  * linea.js — Bodega Cicchitti
  * ─────────────────────────────────────────────────────────────
  * Renderiza la página de una línea de vinos leyendo el parámetro
- * ?slug= de la URL y consultando wines-data.js.
- *
- * Al migrar a Sanity, reemplazar getLineBySlug() y getOtherLines()
- * por llamadas a la API de Sanity. El HTML renderizado no cambia.
+ * ?slug= de la URL y consultando Sanity via getLineBySlugAsync().
  * ─────────────────────────────────────────────────────────────
  */
 
@@ -22,7 +19,6 @@
     <line x1="11" y1="52" x2="29" y2="52" stroke-width="0.5" opacity="0.5"/>
   </svg>`;
 
-  /* ── Leer slug de la URL ── */
   function getSlug() {
     return new URLSearchParams(window.location.search).get('slug');
   }
@@ -33,7 +29,7 @@
       <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--dark);gap:20px;padding:40px;">
         <div style="font-family:var(--serif);font-size:48px;font-weight:300;color:rgba(200,169,110,0.3);">404</div>
         <div style="font-family:var(--sans);font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:rgba(244,236,216,0.3);">Línea no encontrada</div>
-        <a href="../index.html" style="font-family:var(--sans);font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);text-decoration:none;margin-top:12px;display:flex;align-items:center;gap:8px;">
+        <a href="/" style="font-family:var(--sans);font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);text-decoration:none;margin-top:12px;display:flex;align-items:center;gap:8px;">
           Volver al inicio ${ARROW_SVG}
         </a>
       </div>`;
@@ -53,7 +49,7 @@
       : '';
 
     return `
-      <a href="vino.html?slug=${vino.slug}" class="line-card reveal">
+      <a href="/vino?slug=${vino.slug}" class="line-card reveal">
         <div class="line-card__img-wrap">${imgContent}</div>
         <div class="line-card__body">
           ${cosechaLabel}
@@ -68,12 +64,13 @@
 
   /* ── Render: card de otra línea ── */
   function renderLineCard(linea, index) {
-    const num = String(linea.orden || index + 1).padStart(2, '0');
+    const num   = String(linea.orden || index + 1).padStart(2, '0');
+    const count = (linea.vinos || []).length;
     return `
-      <a href="linea.html?slug=${linea.slug}" class="other-lines__card reveal delay-${Math.min(index, 4)}">
+      <a href="/linea?slug=${linea.slug}" class="other-lines__card reveal delay-${Math.min(index, 4)}">
         <div class="other-lines__card-num">${num}</div>
         <div class="other-lines__card-name">${linea.nombre}</div>
-        <div class="other-lines__card-count">${linea.vinos.length} ${linea.vinos.length === 1 ? 'vino' : 'vinos'}</div>
+        <div class="other-lines__card-count">${count} ${count === 1 ? 'vino' : 'vinos'}</div>
         <span class="other-lines__card-link">
           Explorar ${ARROW_SVG}
         </span>
@@ -81,18 +78,24 @@
   }
 
   /* ── Render principal ── */
-  function renderPage(linea) {
-    const winesHTML   = linea.vinos.map(v => renderWineCard(v, linea.nombre)).join('');
-    const otherLines  = getOtherLines(linea.slug);
+  function renderPage(linea, otherLines) {
+    const vinos       = linea.vinos || [];
+    const winesHTML   = vinos.map(v => renderWineCard(v, linea.nombre)).join('');
     const othersHTML  = otherLines.map((l, i) => renderLineCard(l, i)).join('');
 
     const badgeHTML = linea.etiqueta
       ? `<div class="line-hero__badge">${linea.etiqueta}</div>`
       : '';
 
+    const heroImgStyle = linea.heroImg
+      ? ` style="background-image: url('${linea.heroImg}');"`
+      : '';
+    const heroClass = linea.heroImg ? 'line-hero line-hero--has-img' : 'line-hero';
+
     return `
       <!-- HERO -->
-      <section class="line-hero">
+      <section class="${heroClass}"${heroImgStyle}>
+        ${linea.heroImg ? '<div class="line-hero__img-overlay"></div>' : ''}
         <div class="line-hero__ornament"></div>
         <div class="line-hero__bg-word">${linea.nombre}</div>
 
@@ -103,8 +106,8 @@
           <div class="line-hero__divider"></div>
           <p class="line-hero__desc">${linea.descripcion}</p>
           <div class="line-hero__count">
-            <span class="line-hero__count-num">${linea.vinos.length}</span>
-            ${linea.vinos.length === 1 ? 'vino en esta línea' : 'vinos en esta línea'}
+            <span class="line-hero__count-num">${vinos.length}</span>
+            ${vinos.length === 1 ? 'vino en esta línea' : 'vinos en esta línea'}
           </div>
         </div>
 
@@ -127,7 +130,7 @@
             </h2>
           </div>
           <div class="line-wines__subtitle">
-            ${linea.vinos.length} ${linea.vinos.length === 1 ? 'varietal' : 'varietales'}
+            ${vinos.length} ${vinos.length === 1 ? 'varietal' : 'varietales'}
           </div>
         </div>
         <div class="line-wines__grid">
@@ -165,31 +168,32 @@
 
     if (!slug) { renderError(root); return; }
 
-    const linea = getLineBySlug(slug);
-    if (!linea) { renderError(root); return; }
+    Promise.all([
+      getLineBySlugAsync(slug),
+      getOtherLinesAsync(slug)
+    ]).then(function (results) {
+      const linea      = results[0];
+      const otherLines = results[1];
 
-    updateMeta(linea);
-    root.innerHTML = renderPage(linea);
+      if (!linea) { renderError(root); return; }
 
-    /* Activar scroll reveal (global.js ya lo inicializa,
-       pero llamamos de nuevo para los elementos recién inyectados) */
-    if (typeof initReveal === 'function') {
-      initReveal();
-    } else {
-      /* Fallback: activar todos los .reveal visibles */
-      requestAnimationFrame(function () {
-        document.querySelectorAll('.reveal').forEach(function (el) {
-          const io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) {
-              if (e.isIntersecting) {
-                e.target.classList.add('visible');
-                io.unobserve(e.target);
-              }
-            });
-          }, { threshold: 0.08 });
-          io.observe(el);
+      updateMeta(linea);
+      root.innerHTML = renderPage(linea, otherLines);
+
+      if (typeof initReveal === 'function') {
+        initReveal();
+      } else {
+        requestAnimationFrame(function () {
+          document.querySelectorAll('.reveal').forEach(function (el) {
+            const io = new IntersectionObserver(function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+              });
+            }, { threshold: 0.08 });
+            io.observe(el);
+          });
         });
-      });
-    }
+      }
+    });
   });
 })();

@@ -1,7 +1,7 @@
 /**
  * vinos.js — Bodega Cicchitti
- * Renderiza el catálogo de líneas en vinos.html desde wines-data.js.
- * Al migrar a Sanity: reemplazar getAllLines() por query a la API.
+ * Renderiza el catálogo de líneas en vinos.html.
+ * Usa getAllLinesAsync() para obtener datos de Sanity.
  */
 
 (function () {
@@ -17,7 +17,7 @@
   </svg>`;
 
   function getFeaturedImage(linea) {
-    const wine = linea.vinos.find(v => v.imagen);
+    const wine = (linea.vinos || []).find(v => v.imagen);
     return wine ? wine.imagen : null;
   }
 
@@ -35,8 +35,10 @@
       ? `<div class="linea-card__badge">${linea.etiqueta}</div>`
       : '';
 
+    const count = (linea.vinos || []).length;
+
     return `
-      <a href="linea.html?slug=${linea.slug}"
+      <a href="/linea?slug=${linea.slug}"
          class="linea-card${isFeatured ? ' linea-card--featured' : ''} reveal delay-${delay}">
         <div class="linea-card__img-wrap">${imgContent}</div>
         <div class="linea-card__body">
@@ -44,7 +46,7 @@
           <div class="linea-card__num">${num}</div>
           <div class="linea-card__name">${linea.nombre}</div>
           <div class="linea-card__count">
-            ${linea.vinos.length} ${linea.vinos.length === 1 ? 'varietal' : 'varietales'}
+            ${count} ${count === 1 ? 'varietal' : 'varietales'}
           </div>
           <p class="linea-card__desc">${linea.descripcion}</p>
           <span class="linea-card__cta">Explorar línea ${ARROW}</span>
@@ -56,9 +58,13 @@
     const grid = document.getElementById('catalogo-grid');
     if (!grid) return;
 
-    const lines = getAllLines();
-    grid.innerHTML = lines.map((l, i) => renderLineCard(l, i)).join('');
-
-    if (typeof initReveal === 'function') initReveal();
+    getAllLinesAsync().then(function (lines) {
+      if (!lines || lines.length === 0) {
+        grid.innerHTML = '<p style="font-family:var(--sans);font-size:13px;color:rgba(75,15,26,0.4);padding:40px;">No hay líneas de vino publicadas.</p>';
+        return;
+      }
+      grid.innerHTML = lines.map((l, i) => renderLineCard(l, i)).join('');
+      if (typeof initReveal === 'function') initReveal();
+    });
   });
 })();
