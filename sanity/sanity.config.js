@@ -17,6 +17,16 @@ export default defineConfig({
           .title('Contenido')
           .items([
             S.listItem()
+              .title('Configuración del Home')
+              .id('homeConfig')
+              .child(
+                S.document()
+                  .schemaType('homeConfig')
+                  .documentId('homeConfig')
+                  .title('Configuración del Home')
+              ),
+            S.divider(),
+            S.listItem()
               .title('Líneas de Vino')
               .schemaType('wineRange')
               .child(S.documentTypeList('wineRange').title('Líneas de Vino')),

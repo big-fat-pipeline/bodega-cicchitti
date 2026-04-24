@@ -78,6 +78,10 @@
       </div>`;
   }
 
+  const CHEVRON_DOWN = `<svg class="nav__drawer-toggle-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none">
+    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`;
+
   /* ── Drawer mobile: sección de líneas ── */
   function buildDrawerLines(lines) {
     return lines.map(l => `
@@ -141,14 +145,19 @@
         </div>
         <nav class="nav__drawer-nav">
           <div class="nav__drawer-section">
-            <div class="nav__drawer-label">Vinos</div>
-            ${buildDrawerLines(lines)}
-            <a href="/vinos" class="nav__drawer-link nav__drawer-link--all">
-              Ver todos los vinos ${ARROW}
-            </a>
+            <button class="nav__drawer-toggle" id="nav-drawer-vinos-toggle" aria-expanded="false">
+              <span class="nav__drawer-label">Vinos</span>
+              ${CHEVRON_DOWN}
+            </button>
+            <div class="nav__drawer-collapse" id="nav-drawer-vinos-collapse">
+              ${buildDrawerLines(lines)}
+              <a href="/vinos" class="nav__drawer-link nav__drawer-link--all">
+                Ver todos los vinos ${ARROW}
+              </a>
+            </div>
           </div>
           <div class="nav__drawer-section">
-            <a href="/espumantes" class="nav__drawer-link">Espumantes Soigné</a>
+            <a href="/espumantes" class="nav__drawer-link">Espumantes</a>
             <a href="/bodega" class="nav__drawer-link">Bodega</a>
             <a href="#" class="nav__drawer-link">Viñedos</a>
             <a href="/noticias" class="nav__drawer-link">Noticias</a>
@@ -199,6 +208,16 @@
       document.body.style.overflow = '';
     }
 
+    const vinosToggle   = document.getElementById('nav-drawer-vinos-toggle');
+    const vinosCollapse = document.getElementById('nav-drawer-vinos-collapse');
+    if (vinosToggle && vinosCollapse) {
+      vinosToggle.addEventListener('click', () => {
+        const isOpen = vinosToggle.getAttribute('aria-expanded') === 'true';
+        vinosToggle.setAttribute('aria-expanded', String(!isOpen));
+        vinosCollapse.classList.toggle('nav__drawer-collapse--open', !isOpen);
+      });
+    }
+
     hamburger && hamburger.addEventListener('click', openDrawer);
     closeBtn  && closeBtn.addEventListener('click', closeDrawer);
     overlay   && overlay.addEventListener('click', closeDrawer);
@@ -210,29 +229,25 @@
 
   /* ── Rebuild del mega menú y drawer sin perder estado del nav ── */
   function rebuildMenuContent(lines) {
-    const megaGrid    = document.querySelector('.nav__mega-grid');
-    const drawerLines = document.querySelector('.nav__drawer-section');
+    const megaGrid      = document.querySelector('.nav__mega-grid');
+    const drawerCollapse = document.querySelector('.nav__drawer-collapse');
 
     if (megaGrid) {
       megaGrid.innerHTML = lines.map(l => buildLineColumn(l)).join('');
     }
-    if (drawerLines) {
-      /* Reemplazar sólo los links de líneas (antes del "Ver todos") */
-      const allLink = drawerLines.querySelector('.nav__drawer-link--all');
-      const label   = drawerLines.querySelector('.nav__drawer-label');
-      if (allLink && label) {
-        /* Remover links existentes entre label y allLink */
-        let node = label.nextSibling;
+    if (drawerCollapse) {
+      const allLink = drawerCollapse.querySelector('.nav__drawer-link--all');
+      if (allLink) {
+        let node = drawerCollapse.firstChild;
         while (node && node !== allLink) {
           const next = node.nextSibling;
-          drawerLines.removeChild(node);
+          drawerCollapse.removeChild(node);
           node = next;
         }
-        /* Insertar nuevos links */
         const temp = document.createElement('div');
         temp.innerHTML = buildDrawerLines(lines);
         while (temp.firstChild) {
-          drawerLines.insertBefore(temp.firstChild, allLink);
+          drawerCollapse.insertBefore(temp.firstChild, allLink);
         }
       }
     }

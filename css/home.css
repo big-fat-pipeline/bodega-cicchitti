@@ -1161,6 +1161,28 @@
   flex-shrink: 0;
 }
 
+/* ── HOME NOTICIAS ── */
+.home-noticias {
+  background: var(--cream-deep);
+  padding: 80px 72px 96px;
+}
+
+.home-noticias__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 56px;
+  padding-bottom: 24px;
+  border-bottom: 0.5px solid rgba(75, 15, 26, 0.1);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.home-noticias__title {
+  font-size: clamp(28px, 3vw, 42px);
+  color: var(--wine);
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
 
@@ -1219,6 +1241,10 @@
 
   .wines__grid {
     grid-template-columns: 1fr;
+  }
+
+  .home-noticias {
+    padding: 60px 32px 72px;
   }
 
   .personalizado__inner {

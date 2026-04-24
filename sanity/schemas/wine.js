@@ -76,10 +76,10 @@ export default {
     },
     {
       name: 'fichaTecnica',
-      title: 'Ficha técnica (PDF)',
-      type: 'file',
-      options: { accept: '.pdf' },
-      description: 'PDF con la ficha técnica del vino. Se muestra como botón en la página del vino.'
+      title: 'Ficha técnica (imagen o PDF)',
+      type: 'image',
+      options: { accept: 'image/*,.pdf' },
+      description: 'Imagen o PDF con la ficha técnica. Se muestra como botón en la página del vino.'
     }
   ],
   preview: {
