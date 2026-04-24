@@ -77,6 +77,25 @@
         metaValues[1].innerHTML   = data.vinedo ? data.vinedo.replace(', ', '<br>') : '—';
       }
 
+      /* ── Ficha técnica ── */
+      const fichaBtnWrap = document.getElementById('wine-ficha-tecnica');
+      if (fichaBtnWrap) {
+        if (data.fichaTecnica) {
+          fichaBtnWrap.innerHTML = `
+            <a href="${data.fichaTecnica}" target="_blank" rel="noopener"
+               class="btn btn--outline-dark wine-ficha-btn">
+              <svg width="13" height="14" viewBox="0 0 13 14" fill="none" style="flex-shrink:0">
+                <path d="M2 1h6l3 3v9H2V1z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
+                <path d="M8 1v3h3M4 7h5M4 9.5h5M4 4.5h2" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+              </svg>
+              Ficha técnica
+            </a>`;
+          fichaBtnWrap.style.display = '';
+        } else {
+          fichaBtnWrap.style.display = 'none';
+        }
+      }
+
       /* ── Premios ── */
       const awardsEl = document.getElementById('wine-awards');
       if (awardsEl && data.premios && data.premios.length > 0) {

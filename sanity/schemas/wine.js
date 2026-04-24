@@ -73,6 +73,13 @@ export default {
       title: 'Millesime (espumantes)',
       type: 'string',
       description: 'Solo para espumantes. Ej: 2020'
+    },
+    {
+      name: 'fichaTecnica',
+      title: 'Ficha técnica (PDF)',
+      type: 'file',
+      options: { accept: '.pdf' },
+      description: 'PDF con la ficha técnica del vino. Se muestra como botón en la página del vino.'
     }
   ],
   preview: {

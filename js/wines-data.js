@@ -169,7 +169,8 @@
     '    descripcion,',
     '    tagline,',
     '    metodo,',
-    '    millesime',
+    '    millesime,',
+    '    "fichaTecnica": fichaTecnica.asset->url',
     '  }',
     '}'
   ].join('\n');
