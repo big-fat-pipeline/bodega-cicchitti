@@ -258,9 +258,8 @@
 
 .line-wines__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1px;
-  background: rgba(75,15,26,0.08);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
 /* ── WINE CARD ── */

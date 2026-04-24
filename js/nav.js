@@ -114,7 +114,7 @@
           <a href="/bodega"${isActive('bodega')}>Bodega</a>
         </li>
         <li class="nav__item">
-          <a href="#"${isActive('vinedos')}>Viñedos</a>
+          <a href="/vinedos"${isActive('vinedos')}>Viñedos</a>
         </li>
         <li class="nav__item">
           <a href="/noticias"${isActive('noticias')}>Noticias</a>
@@ -159,7 +159,7 @@
           <div class="nav__drawer-section">
             <a href="/espumantes" class="nav__drawer-link">Espumantes</a>
             <a href="/bodega" class="nav__drawer-link">Bodega</a>
-            <a href="#" class="nav__drawer-link">Viñedos</a>
+            <a href="/vinedos" class="nav__drawer-link">Viñedos</a>
             <a href="/noticias" class="nav__drawer-link">Noticias</a>
             <a href="/postularme" class="nav__drawer-link">Trabajá con nosotros</a>
           </div>

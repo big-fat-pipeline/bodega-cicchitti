@@ -22,32 +22,19 @@
   }
 
   function renderLineCard(linea, index) {
-    const isFeatured = index === 0;
-    const img        = getFeaturedImage(linea);
-    const num        = String(linea.orden || index + 1).padStart(2, '0');
-    const delay      = Math.min(index, 4);
-
-    const imgContent = img
-      ? `<img class="linea-card__img" src="${img}" alt="${linea.nombre}" loading="lazy">`
-      : `<div class="linea-card__img-placeholder">${BOTTLE_PLACEHOLDER}</div>`;
-
-    const badgeHTML = linea.etiqueta
-      ? `<div class="linea-card__badge">${linea.etiqueta}</div>`
-      : '';
-
+    const bg    = linea.heroImg ? `background-image:url('${linea.heroImg}')` : '';
+    const delay = Math.min(index, 4);
     const count = (linea.vinos || []).length;
 
     return `
       <a href="/linea?slug=${linea.slug}"
-         class="linea-card${isFeatured ? ' linea-card--featured' : ''} reveal delay-${delay}">
-        <div class="linea-card__img-wrap">${imgContent}</div>
+         class="linea-card reveal delay-${delay}">
+        <div class="linea-card__bg" style="${bg}"></div>
+        <div class="linea-card__overlay"></div>
         <div class="linea-card__body">
-          ${badgeHTML}
-          <div class="linea-card__num">${num}</div>
+          <div class="linea-card__eyebrow">Línea</div>
           <div class="linea-card__name">${linea.nombre}</div>
-          <div class="linea-card__count">
-            ${count} ${count === 1 ? 'varietal' : 'varietales'}
-          </div>
+          <div class="linea-card__count">${count} ${count === 1 ? 'varietal' : 'varietales'}</div>
           <p class="linea-card__desc">${linea.descripcion}</p>
           <span class="linea-card__cta">Explorar línea ${ARROW}</span>
         </div>

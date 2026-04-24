@@ -1,0 +1,571 @@
+/* ══════════════════════════════════════════
+   CICCHITTI — VIÑEDOS CSS
+══════════════════════════════════════════ */
+
+/* ── HERO ── */
+.vinedos-hero {
+  min-height: 100vh;
+  background: var(--dark);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: var(--nav-height);
+  position: relative;
+  overflow: hidden;
+}
+
+.vinedos-hero__img {
+  position: relative;
+  overflow: hidden;
+}
+.vinedos-hero__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.72) brightness(0.82);
+  transition: transform 8s ease;
+  transform: scale(1.04);
+}
+.vinedos-hero:hover .vinedos-hero__img img {
+  transform: scale(1.08);
+}
+
+.vinedos-hero__img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(14,10,8,0.18) 0%, rgba(14,10,8,0.58) 100%);
+}
+
+.vinedos-hero__watermark {
+  position: absolute;
+  bottom: 28px;
+  left: 32px;
+  font-family: var(--serif);
+  font-size: 88px;
+  font-weight: 300;
+  color: rgba(200,169,110,0.12);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.vinedos-hero__info {
+  padding: 80px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 0.5px solid rgba(200,169,110,0.08);
+}
+
+.vinedos-hero__eyebrow {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  animation: vinedosIn 0.9s ease 0.2s forwards;
+}
+.vinedos-hero__eyebrow::before {
+  content: '';
+  width: 24px;
+  height: 0.5px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+.vinedos-hero__title {
+  font-family: var(--serif);
+  font-size: clamp(42px, 5.5vw, 72px);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.0;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: vinedosIn 0.9s ease 0.35s forwards;
+}
+.vinedos-hero__title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.vinedos-hero__divider {
+  width: 40px;
+  height: 0.5px;
+  background: rgba(200,169,110,0.3);
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: vinedosIn 0.9s ease 0.5s forwards;
+}
+
+.vinedos-hero__lead {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(244,236,216,0.5);
+  line-height: 1.8;
+  max-width: 400px;
+  margin-bottom: 44px;
+  opacity: 0;
+  animation: vinedosIn 0.9s ease 0.65s forwards;
+}
+
+.vinedos-hero__hitos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 0.5px solid rgba(200,169,110,0.12);
+  margin-bottom: 44px;
+  opacity: 0;
+  animation: vinedosIn 0.9s ease 0.8s forwards;
+}
+.vinedos-hero__hito {
+  padding: 18px 20px;
+  border-right: 0.5px solid rgba(200,169,110,0.12);
+}
+.vinedos-hero__hito:last-child { border-right: none; }
+
+.vinedos-hero__hito-num {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.vinedos-hero__hito-num span {
+  font-size: 18px;
+  letter-spacing: 0.02em;
+}
+.vinedos-hero__hito-lbl {
+  font-family: var(--sans);
+  font-size: 8px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(244,236,216,0.3);
+}
+
+.vinedos-hero__cta {
+  opacity: 0;
+  animation: vinedosIn 0.9s ease 0.95s forwards;
+}
+
+@keyframes vinedosIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── INTRO ── */
+.vinedos-intro {
+  background: var(--cream-deep);
+  padding: 96px 72px;
+}
+
+.vinedos-intro__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: start;
+  padding-bottom: 0;
+}
+
+.vinedos-intro__title {
+  font-size: clamp(34px, 4vw, 54px);
+  color: var(--wine);
+}
+
+.vinedos-intro__body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 8px;
+}
+.vinedos-intro__body p {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(75,15,26,0.55);
+  line-height: 1.82;
+}
+
+/* ── ZONAS ── */
+.vinedos-zonas {
+  background: var(--cream);
+  padding: 88px 52px 96px;
+}
+
+.vinedos-zonas__header {
+  margin-bottom: 56px;
+  padding-bottom: 24px;
+  border-bottom: 0.5px solid rgba(75,15,26,0.12);
+}
+
+.vinedos-zonas__title {
+  font-size: clamp(32px, 3.8vw, 52px);
+  color: var(--wine);
+  margin-top: 14px;
+}
+
+.vinedos-zonas__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* Zona card — imagen de fondo con overlay */
+.zona-card {
+  position: relative;
+  overflow: hidden;
+  height: 460px;
+  cursor: default;
+}
+
+.zona-card__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: #1a080e;
+  transition: transform 0.7s ease;
+}
+.zona-card:hover .zona-card__bg {
+  transform: scale(1.04);
+}
+
+.zona-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(14,10,8,0.05) 0%,
+    rgba(14,10,8,0.28) 35%,
+    rgba(14,10,8,0.88) 100%
+  );
+}
+
+.zona-card__body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px 36px 40px;
+  z-index: 2;
+}
+
+.zona-card__region {
+  font-family: var(--sans);
+  font-size: 8px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.zona-card__region::before {
+  content: '';
+  width: 18px;
+  height: 0.5px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.zona-card__name {
+  font-family: var(--serif);
+  font-size: clamp(26px, 2.8vw, 36px);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.08;
+  margin-bottom: 14px;
+}
+
+.zona-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 0.5px solid rgba(244,236,216,0.12);
+}
+.zona-card__alt,
+.zona-card__vars {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 300;
+  color: rgba(244,236,216,0.5);
+  letter-spacing: 0.06em;
+}
+.zona-card__vars {
+  color: rgba(200,169,110,0.55);
+  font-style: italic;
+}
+
+.zona-card__desc {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 300;
+  color: rgba(244,236,216,0.6);
+  line-height: 1.68;
+}
+
+/* ── PANORÁMICA ── */
+.vinedos-panoramica {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+}
+
+.vinedos-panoramica__img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 40%;
+  background-color: #1a080e;
+  transition: transform 12s ease;
+}
+.vinedos-panoramica:hover .vinedos-panoramica__img {
+  transform: scale(1.03);
+}
+
+.vinedos-panoramica__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(14,10,8,0.35) 0%,
+    rgba(14,10,8,0.1) 45%,
+    rgba(14,10,8,0.55) 100%
+  );
+}
+
+.vinedos-panoramica__content {
+  position: absolute;
+  bottom: 48px;
+  left: 72px;
+  right: 72px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.vinedos-panoramica__quote {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.4vw, 30px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--cream);
+  line-height: 1.4;
+  max-width: 620px;
+}
+
+.vinedos-panoramica__caption {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(244,236,216,0.38);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.vinedos-panoramica__caption::before {
+  content: '';
+  width: 24px;
+  height: 0.5px;
+  background: rgba(244,236,216,0.28);
+}
+
+/* ── PRÁCTICAS ── */
+.vinedos-practicas {
+  background: var(--dark);
+  padding: 96px 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.vinedos-practicas__bg-word {
+  position: absolute;
+  right: -20px;
+  bottom: -30px;
+  font-family: var(--serif);
+  font-size: 200px;
+  font-weight: 300;
+  color: rgba(200,169,110,0.03);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  letter-spacing: 0.06em;
+}
+
+.vinedos-practicas__header {
+  margin-bottom: 64px;
+}
+
+.vinedos-practicas__title {
+  font-size: clamp(32px, 3.8vw, 52px);
+  color: var(--cream);
+  margin-top: 14px;
+}
+.vinedos-practicas__title em { color: var(--gold); }
+
+.vinedos-practicas__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(200,169,110,0.06);
+}
+
+/* Práctica card */
+.practica-card {
+  background: var(--charcoal);
+  padding: 40px 32px 44px;
+  display: flex;
+  flex-direction: column;
+}
+
+.practica-card__num {
+  font-family: var(--serif);
+  font-size: 64px;
+  font-weight: 300;
+  color: rgba(200,169,110,0.06);
+  line-height: 1;
+  margin-bottom: -4px;
+  letter-spacing: -0.02em;
+}
+
+.practica-card__icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+.practica-card__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.practica-card__title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.practica-card__desc {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(244,236,216,0.35);
+  line-height: 1.78;
+}
+
+/* ── CITA FINAL ── */
+.vinedos-quote {
+  background: var(--wine);
+  padding: 96px 72px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.vinedos-quote::before {
+  content: '«';
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--serif);
+  font-size: 300px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.04);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.vinedos-quote__text {
+  font-family: var(--sans);
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.65;
+  max-width: 640px;
+  margin: 0 auto 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.vinedos-quote__cite {
+  display: block;
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: rgba(244,236,216,0.4);
+  margin-bottom: 44px;
+  position: relative;
+  z-index: 2;
+}
+
+.vinedos-quote__cta {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .vinedos-practicas__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 960px) {
+  .vinedos-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .vinedos-hero__img { min-height: 360px; }
+  .vinedos-hero__info { padding: 52px 32px; }
+  .vinedos-hero__hitos { grid-template-columns: repeat(3, 1fr); }
+
+  .vinedos-intro { padding: 64px 32px; }
+  .vinedos-intro__header {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .vinedos-zonas { padding: 60px 24px 72px; }
+  .vinedos-zonas__grid {
+    grid-template-columns: 1fr;
+  }
+  .zona-card { height: 380px; }
+
+  .vinedos-panoramica { height: 340px; }
+  .vinedos-panoramica__content {
+    left: 32px;
+    right: 32px;
+    bottom: 32px;
+  }
+
+  .vinedos-practicas { padding: 60px 32px; }
+  .vinedos-practicas__grid { grid-template-columns: 1fr; }
+
+  .vinedos-quote { padding: 64px 32px; }
+  .vinedos-quote__cta { flex-direction: column; align-items: center; }
+}
+
+@media (max-width: 600px) {
+  .vinedos-hero__watermark { font-size: 56px; }
+  .zona-card { height: 420px; }
+  .zona-card__body { padding: 24px 24px 32px; }
+}

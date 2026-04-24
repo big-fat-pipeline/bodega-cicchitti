@@ -92,29 +92,24 @@
 
     grid.innerHTML = noticias.map(function (n, i) {
       var delay = i > 0 ? ' delay-' + i : '';
-      var imgHtml = n.imagen
-        ? '<img class="noticia-card__img" src="' + n.imagen + '" alt="' + n.titulo + '" loading="lazy">'
-        : '<div class="noticia-card__img-placeholder">' +
-          '<svg viewBox="0 0 80 48" fill="none" width="80" height="48">' +
-          '<rect width="80" height="48" fill="rgba(75,15,26,0.06)"/>' +
-          '<text x="40" y="28" font-family="Georgia,serif" font-size="10"' +
-          ' fill="rgba(75,15,26,0.2)" text-anchor="middle">Cicchitti</text>' +
-          '</svg></div>';
-
+      var bg = n.imagen
+        ? 'background-image:url(\'' + n.imagen + '\')'
+        : '';
       var catColor = CAT_COLORS[n.categoria] || 'var(--wine)';
 
       return [
         '<a href="pages/noticia.html?slug=' + n.slug + '"',
-        '   class="noticia-card reveal' + delay + '">',
-        '  <div class="noticia-card__img-wrap">' + imgHtml + '</div>',
-        '  <div class="noticia-card__body">',
-        '    <div class="noticia-card__meta">',
-        '      <span class="noticia-card__cat" style="background:' + catColor + '">' + (n.categoria || '') + '</span>',
-        '      <span class="noticia-card__date">' + _formatDate(n.fecha) + '</span>',
+        '   class="home-noticia-promo reveal' + delay + '">',
+        '  <div class="home-noticia-promo__bg" style="' + bg + '"></div>',
+        '  <div class="home-noticia-promo__overlay"></div>',
+        '  <div class="home-noticia-promo__body">',
+        '    <div class="home-noticia-promo__meta">',
+        '      <span class="home-noticia-promo__cat" style="background:' + catColor + '">' + (n.categoria || '') + '</span>',
+        '      <span class="home-noticia-promo__date">' + _formatDate(n.fecha) + '</span>',
         '    </div>',
-        '    <div class="noticia-card__titulo">' + n.titulo + '</div>',
-        '    <p class="noticia-card__bajada">' + (n.bajada || '') + '</p>',
-        '    <span class="noticia-card__cta">Leer más ' + ARROW_SVG + '</span>',
+        '    <div class="home-noticia-promo__titulo">' + n.titulo + '</div>',
+        '    <p class="home-noticia-promo__bajada">' + (n.bajada || '') + '</p>',
+        '    <span class="home-noticia-promo__cta">Leer más ' + ARROW_SVG + '</span>',
         '  </div>',
         '</a>'
       ].join('\n');
